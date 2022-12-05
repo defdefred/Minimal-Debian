@@ -1,0 +1,111 @@
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864588       0    864588   0% /dev
+tmpfs                           176204    2856    173348   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1088156 224054428   1% /
+tmpfs                           881012       0    881012   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881012       0    881012   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+install wordgrinder and sc
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864588       0    864588   0% /dev
+tmpfs                           176204    2856    173348   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1151116 223991468   1% /
+tmpfs                           881012       0    881012   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881012       0    881012   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+autoremove and clean
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864588       0    864588   0% /dev
+tmpfs                           176204    2856    173348   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1089716 224052868   1% /
+tmpfs                           881012       0    881012   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881012       0    881012   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+rmmod pcspkr
+apt install gpm ; apt autoremore ; apt clean
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864588       0    864588   0% /dev
+tmpfs                           176204    2856    173348   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1090636 224051948   1% /
+tmpfs                           881012       0    881012   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881012       0    881012   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+unicode_start before using wordgrinder
+apt remove gpm wordgrinder sc
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864588       0    864588   0% /dev
+tmpfs                           176204    2872    173332   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1089052 224053532   1% /
+tmpfs                           881012       0    881012   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881012       0    881012   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+apt install xserver-xorg-video-radeon
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864592       0    864592   0% /dev
+tmpfs                           176204    2852    173352   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1227192 223915392   1% /
+tmpfs                           881016       0    881016   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881016       0    881016   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+apt install fluxbox xinit
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864592       0    864592   0% /dev
+tmpfs                           176204    2852    173352   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1209572 223933012   1% /
+tmpfs                           881016       0    881016   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881016       0    881016   0% /sys/fs/cgroup
+/dev/sda1                       240972   87634    140897  39% /boot
+add non-free to apt source + comment deb-src
+apt install sudo stterm
+Filesystem                   1K-blocks    Used Available Use% Mounted on
+udev                            864592       0    864592   0% /dev
+tmpfs                           176204    2896    173308   2% /run
+/dev/mapper/minipc1--vg-root 237264696 1254592 223887992   1% /
+tmpfs                           881016       0    881016   0% /dev/shm
+tmpfs                             5120       0      5120   0% /run/lock
+tmpfs                           881016       0    881016   0% /sys/fs/cgroup
+/dev/sda1                       240972   87633    140898  39% /boot
+tmpfs                           176200       0    176200   0% /run/user/1000
+config menu: placement top + Maximize Over
+apt install firefox-esr
+apt install libgtk2.0-0
+https://github.com/gorhill/uBlock-for-firefox-legacy/releases
+extension Dark Moon
+https://duckduckgo.com/lite/ as home page
+configure palemoon to hide ALL useless bar (keep only tabs)
+apt install tmux
+ln -s /home/user/palemoon/palemoon /etc/alternatives/x-www-browser
+apt install wget
+wget https://download.opensuse.org/repositories/home:/stevenpusser/Debian_10/amd64/palemoon_28.10.0-2_amd64.deb
+dpkg -i palemoon_28.10.0-2_amd64.deb
+apt -f install
+apt intstall gimp
+deb http://deb.debian.org/debian experimental main>>/etc/apt/sources.list
+apt install -t experimental fluxbox
+auto login: systemctl edit getty@tty1
+cat /etc/systemd/system/getty@tty1.service.d/override.conf
+[Service]
+ExecStart=
+ExecStart=-/usr/sbin/agetty --autologin username --noclear %I $TERM
+su - user -c "cat > .bash_profile"
+if [ `tty` = /dev/tty1 ]
+then
+        if ping -c 1 -W 1 1.1.1.1
+        then
+                sudo /usr/bin/apt-get update
+                sudo /usr/bin/apt-get upgrade -y
+        fi
+        sudo /usr/bin/apt-get autoremove -y
+        sudo /usr/bin/apt-get clean -y
+        rm -rf $HOME/Download/*
+        exec startx
+fi
+
+apt remove nano
