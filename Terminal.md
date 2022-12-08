@@ -3,7 +3,7 @@ So you want to a very light working environment to enjoy your very old computer,
 
 # WordGrinder Joe
 
-# Sc-im spreadcheat
+# Sc-im spreadcheet
 
 # Visidata
 
