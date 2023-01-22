@@ -25,11 +25,11 @@ if [ `tty` = /dev/tty1 ]
 then
         if ping -c 1 -W 1 1.1.1.1
         then
-                sudo /usr/bin/apt-get update -y
-                sudo /usr/bin/apt-get upgrade -y
+                sudo /usr/bin/apt update -y
+                sudo /usr/bin/apt upgrade -y --with-new-pkgs      
         fi
-        sudo /usr/bin/apt-get autoremove -y
-        sudo /usr/bin/apt-get clean -y
+        sudo /usr/bin/apt autoremove -y
+        sudo /usr/bin/apt clean -y
         exec gui
 fi
 ```
@@ -37,7 +37,7 @@ fi
 Users have rigths and dutie
 ```
 # cat /etc/sudoers.d/user
-user ALL=(ALL) NOPASSWD: /usr/bin/apt-get update -y, /usr/bin/apt-get upgrade -y, /usr/bin/apt-get autoremove -y, /usr/bin/apt-get clean -y
+user ALL=(ALL) NOPASSWD: /usr/bin/apt update -y, /usr/bin/apt upgrade -y --with-new-pkgs, /usr/bin/apt autoremove -y, /usr/bin/apt clean -y
 ```
 ## Gui
 You can use Xorg or Wayland
