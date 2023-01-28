@@ -20,6 +20,14 @@ cat /etc/systemd/system/getty@tty1.service.d/override.conf
 ExecStart=
 ExecStart=-/usr/sbin/agetty --autologin user --noclear %I $TERM
 ```
+## Disable ipv6
+```
+root@wize:~# cat > /etc/sysctl.d/00-no-ipv6.conf
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+```
+
 ## Auto patching
 Internet is a dangerous place on earth. Can't use it before proper patching your debian, everyday. Auto patching and auto gui is only active in tty1, so ALT-F? switch to another console if you need pure cli access.
 ```
