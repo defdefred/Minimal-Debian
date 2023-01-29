@@ -28,6 +28,36 @@ net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 ```
 
+## Wifi/Ethernet
+```
+root@wize:~# ip a | grep BROADCAST
+2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+3: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+4: wlx0090c38eb690: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+```
+Ethernet is `eth0`
+Wifi (USB) is `wlx0090c38eb690`
+```
+root@wize:~# $ cat /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# wifi
+auto wlx0090c38eb690
+iface wlx0090c38eb690 inet dhcp
+wpa-ssid "mySID"
+wpa-psk  "mySECRET"
+
+# The primary network interface (not used => commented)
+#auto eth0
+#iface eth0 inet dhcp
+```
 ## Auto patching
 Internet is a dangerous place on earth. Can't use it before proper patching your debian, everyday. Auto patching and auto gui is only active in tty1, so ALT-F? switch to another console if you need pure cli access.
 ```
@@ -54,7 +84,7 @@ Users have rigths and duties
 # cat /etc/sudoers.d/user
 user ALL=(ALL) NOPASSWD: /usr/bin/apt update, /usr/bin/apt full-upgrade -y, /usr/bin/apt autoremove -y, /usr/bin/apt clean -y, /usr/sbin/ifdown -a, /usr/sbin/ifup -a
 ```
-## Choose an interface
+## Interface
 Computosaure should stick with [Terminal](Terminal.md).
 
 More recent computer could use graphical interface with [Wayland](Wayland.md).
