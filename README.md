@@ -56,10 +56,5 @@ user ALL=(ALL) NOPASSWD: /usr/bin/apt update, /usr/bin/apt full-upgrade -y, /usr
 ```
 ## Choose an interface
 Computosaure should stick with [Terminal](Terminal.md).
+
 More recent computer could use graphical interface with [Wayland](Wayland.md).
-## Gui
-You can use Xorg or Wayland
-```
-# cat /home/user/gui
-exec startx
-```
