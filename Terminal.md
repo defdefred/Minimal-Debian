@@ -1,13 +1,19 @@
 So you want to a very light working environment to enjoy your very old computer, a minimalist SBC or an ssh remote session to a server.
 # Font size
 ## testing
-setfont temporarily change the font if passed a font name (in /usr/share/kbd/consolefonts/) such as 
+setfont + font name from /usr/share/kbd/consolefonts/
+
 ## setting
+change /etc/default/setup-console
 
+# Word Processor
+## WordGrinder Joe
 
-# WordGrinder Joe
+# Spreadcheet
+## Sc-im spreadcheet
 
-# Sc-im spreadcheet
+# Database
+## Visidata
 
-# Visidata
-
+# Image
+## fbi -a image.jpg
