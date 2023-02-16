@@ -1,4 +1,10 @@
 # Wayland
+
+## Kitty
+Very good GPU accelerated terminal.
+Works well with `vim` .
+Capability to display image with `kitty +icat image.jpg` .
+
 ## Firefox
 Don't forget:
 - Configuring GPU acceleration (ubuntuhandbook.org/index.php/2021/08/enable-hardware-video-acceleration-va-api-for-firefox-in-ubuntu-20-04-18-04-higher/)
