@@ -4,7 +4,7 @@
 Let's use `user` as username in this doc.
 
 ## Minimal Debian
-Install the less things as possible; Use LUKS encrypted disk with a long sentence with misspelled words and numbers+special characters as password.
+Install the less things possible; Use LUKS encrypted disk with a long sentence, misspelled words and numbers+special characters as password.
 
 ## Living dangerously
 Can't wait for month to have latest software version, so switching to "testing" debian version.
@@ -58,8 +58,8 @@ wpa-psk  "mySECRET"
 #auto eth0
 #iface eth0 inet dhcp
 ```
-## Auto patching
-Internet is a dangerous place on earth. Can't use it before proper patching your debian, everyday. Auto patching and auto gui is only active in tty1, so ALT-F? switch to another console if you need pure cli access.
+## Auto patching, etc.
+Internet is a dangerous place on earth. Can't use it before properlly patching your debian, everyday. Auto patching, auto sound control and auto gui is only active in tty1, so ALT-F? switch to another console if you need pure cli access.
 ```
 su - user -c "cat > .bash_profile"
 if [ `tty` = /dev/tty1 ]
@@ -71,11 +71,15 @@ then
     sudo /usr/sbin/ifdown -a
     sudo /usr/sbin/ifup -a
   fi
-  sudo /usr/bin/apt update -y
+  sudo /usr/bin/apt update
   sudo /usr/bin/apt full-upgrade -y
   sudo /usr/bin/apt autoremove -y
   sudo /usr/bin/apt clean -y
-  exec gui
+  amixer sset Speaker 100%
+  amixer sset Headphone 100%
+  amixer sset PCM 100%
+  amixer sset Master 50%
+  [ -x "/usr/bin/weston" ] && weston
 fi
 ```
 ## Sudo
