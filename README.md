@@ -6,11 +6,18 @@ Let's use `user` as username in this doc.
 ## Minimal Debian
 Install the less things possible; Use LUKS encrypted disk with a long sentence, misspelled words and numbers+special characters as password.
 
+## Needed package
+```
+root@wize:~# apt install alsa-utils sudo
+```
+
 ## Living dangerously
 Can't wait for month to have latest software version, so switching to "testing" debian version.
 ```
-# cat /etc/apt/sources.list
-deb http://deb.debian.org/debian/ testing main non-free contrib
+root@wize:~# cat /etc/apt/sources.list
+deb http://deb.debian.org/debian testing main contrib non-free-firmware
+deb http://deb.debian.org/debian-security/ testing-security main contrib non-free-firmware
+deb http://deb.debian.org/debian testing-updates main contrib non-free-firmware
 ```
 ## Auto login
 As the disk is Luks encrypted, the strong pass-phrase is asked at each boot and auto-login is welcome.
