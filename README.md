@@ -34,9 +34,11 @@ root@wize:~# ip a | grep BROADCAST
 2: eth0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
 3: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
 4: wlx0090c38eb690: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+7: enx020733313734: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
 ```
 Ethernet is `eth0`
 Wifi (USB) is `wlx0090c38eb690`
+4G Phone (USB) is `enx020733313734`
 ```
 root@wize:~# $ cat /etc/network/interfaces
 # This file describes the network interfaces available on your system
@@ -49,10 +51,15 @@ auto lo
 iface lo inet loopback
 
 # wifi
+allow-hotplug wlx0090c38eb690
 auto wlx0090c38eb690
 iface wlx0090c38eb690 inet dhcp
 wpa-ssid "mySID"
 wpa-psk  "mySECRET"
+
+# 4G Phone
+allow-hotplug enx020733313734
+iface enx020733313734 inet dhcp
 
 # The primary network interface (not used => commented)
 #auto eth0
