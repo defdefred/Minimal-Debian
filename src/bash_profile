@@ -1,0 +1,19 @@
+if [ `tty` = /dev/tty1 ]
+then
+  if ping -c 1 -W 1 1.1.1.1
+  then
+    echo Net Ok
+  else
+    sudo /usr/sbin/ifdown -a
+    sudo /usr/sbin/ifup -a
+  fi
+  sudo /usr/bin/apt update
+  sudo /usr/bin/apt full-upgrade -y
+  sudo /usr/bin/apt autoremove -y
+  sudo /usr/bin/apt clean -y
+  amixer sset Speaker 100%
+  amixer sset Headphone 100%
+  amixer sset PCM 100%
+  amixer sset Master 50%
+  [ -x "/usr/bin/weston" ] && weston
+fi
