@@ -19,6 +19,7 @@ deb http://deb.debian.org/debian testing main contrib non-free-firmware
 deb http://deb.debian.org/debian-security/ testing-security main contrib non-free-firmware
 deb http://deb.debian.org/debian testing-updates main contrib non-free-firmware
 ```
+Get the [script](src/create_apt_source_conf)
 ## Auto login
 As the disk is Luks encrypted, the strong pass-phrase is asked at each boot and auto-login is welcome.
 ```
@@ -27,6 +28,7 @@ cat /etc/systemd/system/getty@tty1.service.d/override.conf
 ExecStart=
 ExecStart=-/usr/sbin/agetty --autologin user --noclear %I $TERM
 ```
+Get the [script](src/create_autologin)
 ## Disable ipv6
 ```
 root@wize:~# cat > /etc/sysctl.d/00-no-ipv6.conf
@@ -34,6 +36,7 @@ net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 ```
+Get the [script](src/create_apt_source_conf)
 
 ## Wifi/Ethernet
 ```
@@ -46,8 +49,9 @@ root@wize:~# ip a | grep BROADCAST
 Ethernet is `eth0`
 Wifi (USB) is `wlx0090c38eb690`
 4G Phone (USB) is `enx020733313734`
+This is my configuration, check yours.
 ```
-root@wize:~# $ cat /etc/network/interfaces
+root@wize:~# cat /etc/network/interfaces
 # This file describes the network interfaces available on your system
 # and how to activate them. For more information, see interfaces(5).
 
@@ -57,14 +61,14 @@ source /etc/network/interfaces.d/*
 auto lo
 iface lo inet loopback
 
-# wifi
+# wifi usb
 allow-hotplug wlx0090c38eb690
 auto wlx0090c38eb690
 iface wlx0090c38eb690 inet dhcp
 wpa-ssid "mySID"
 wpa-psk  "mySECRET"
 
-# 4G Phone
+# 4G Phone usb
 allow-hotplug enx020733313734
 iface enx020733313734 inet dhcp
 
@@ -72,10 +76,28 @@ iface enx020733313734 inet dhcp
 #auto eth0
 #iface eth0 inet dhcp
 ```
+Get the [script](src/create_network_interface_template)
 ## Auto patching, etc.
 Internet is a dangerous place on earth. Can't use it before properlly patching your debian, everyday. Auto patching, auto sound control and auto gui is only active in tty1, so ALT-F? switch to another console if you need pure cli access.
+
+First, check what is manageable with `alsa`:
 ```
-su - user -c "cat > .bash_profile"
+root@wize:~# amixer scontrols 
+Simple mixer control 'Master',0
+Simple mixer control 'Headphone',0
+Simple mixer control 'Speaker',0
+Simple mixer control 'PCM',0
+Simple mixer control 'Mic',0
+Simple mixer control 'Mic Boost',0
+Simple mixer control 'Beep',0
+Simple mixer control 'Capture',0
+Simple mixer control 'Auto-Mute Mode',0
+Simple mixer control 'Digital',0
+Simple mixer control 'Loopback Mixing',0
+```
+Then adapt the bash profile script:
+```
+root@wize:~# cat /home/user/.bash_profile
 if [ `tty` = /dev/tty1 ]
 then
   if ping -c 1 -W 1 1.1.1.1
@@ -96,12 +118,15 @@ then
   [ -x "/usr/bin/weston" ] && weston
 fi
 ```
+Get the [script](src/create_bash_profile)
 ## Sudo
 Users have rigths and duties
 ```
 # cat /etc/sudoers.d/user
 user ALL=(ALL) NOPASSWD: /usr/bin/apt update, /usr/bin/apt full-upgrade -y, /usr/bin/apt autoremove -y, /usr/bin/apt clean -y, /usr/sbin/ifdown -a, /usr/sbin/ifup -a
 ```
+Get the [script](src/create_sudoers_d_user)
+
 ## Interface
 Computosaure should stick with [Terminal](Terminal.md).
 
