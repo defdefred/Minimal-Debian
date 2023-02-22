@@ -1,3 +1,4 @@
+cat > /home/user/.bash_profile << OET
 if [ `tty` = /dev/tty1 ]
 then
   if ping -c 1 -W 1 1.1.1.1
@@ -15,5 +16,13 @@ then
   amixer sset Headphone 100%
   amixer sset PCM 100%
   amixer sset Master 50%
-  [ -x "/usr/bin/weston" ] && weston
+  if [ -x "/usr/bin/weston" ]
+  then
+    weston
+  elif [ -x /usr/sbin/startx ]
+    then
+      /usr/sbin/startx 
+    fi
+  fi
 fi
+EOT
