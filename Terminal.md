@@ -14,6 +14,9 @@ All available font are in folder `/usr/share/kbd/consolefonts/`. To test a font 
 ### setting
 Once the right font selected, edit the `/etc/default/setup-console` file to make is persistent.
 
+### wide screen
+If you are using a wide screen, you may want to split the terminal in two part verticaly with `tmux`. Install it with `apt install tmux`, start it and create a splitted second session with `Ctrl-B c` and `Ctrl+b %`. Jump to session using `Ctrl+B <arrow keys>` (keystrokes can be custoized in `.tmux.conf`). 
+
 ## text editor
 
 ### Vim
@@ -36,8 +39,8 @@ Once the right font selected, edit the `/etc/default/setup-console` file to make
 
 ### Fim
 `fim` is perfect to browse a folder full of images and select the one to keep, the one to delete.
-`apt install fim`
-
+`sudo apt install fim`
+`cd folder` `fim *` `SPACE` for next, `BACK-SPACE` for previous, `DEL` to delete, `q` to quit.
 ### ImageMagik
 
 ## Video
