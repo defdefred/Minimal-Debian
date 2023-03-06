@@ -38,9 +38,13 @@ If you are using a wide screen, you may want to split the terminal in two part v
 ## Image
 
 ### Fim
-`fim` is perfect to browse a folder full of images and select the one to keep, the one to delete.
+`fim` is perfect to browse a folder full of images and mark the one to delete.
 `sudo apt install fim`
-`cd folder` `fim *` `SPACE` for next, `BACK-SPACE` for previous, `DEL` to delete, `q` to quit.
+`cd folder` `fim * > to-delete.txt` `SPACE` for next, `BACK-SPACE` for previous, `ENTER` to mark, `q` to quit and then you have the list of file to delete.
+https://www.nongnu.org/fbi-improved/#docs
+
+### Fbi
+
 ### ImageMagik
 
 ## Video
