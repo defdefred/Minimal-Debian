@@ -21,7 +21,7 @@ All available font are in folder `/usr/share/kbd/consolefonts/`. To test a font 
 
 Once the right font selected, edit the `/etc/default/setup-console` file to make is persistent.
 
-If you are using a wide screen, you may want to split the terminal in two part verticaly with `tmux`. Install it with `apt install tmux`, start it and create a splitted second session with `Ctrl-B c` and `Ctrl+b %`. Jump to session using `Ctrl+B <arrow keys>` (keystrokes can be custoized in `.tmux.conf`). 
+If you are using a wide screen, you may want to split the terminal in two part verticaly with `tmux`. Install it with `apt install tmux`, start it and create a splitted second session with `Ctrl-B c` and `Ctrl+b %`. Jump to session using `Ctrl+B <arrow keys>` (keystrokes can be customized in `.tmux.conf`). 
 
 ### Terminology
 
