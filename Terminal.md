@@ -7,7 +7,7 @@ Linux terminal is not limited to text, you can display images and video using th
 
 ### Basic Linux terminal
 
-If your computosaure is really old, this is the way to go, instead skip to the next terminal emulator.
+If your computosaure is really old, this is the way to go, instead skip to the [next terminal emulator](https://github.com/defdefred/Minimal-Debian/blob/main/Terminal.md#terminology).
 
 You can have unicode, colors, but no italic, no underline, no bold, etc.
 
