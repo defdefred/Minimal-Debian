@@ -25,8 +25,8 @@ If you are using a wide screen, you may want to split the terminal in two part v
 
 ### Terminology
 
-You may try this terminal emulator compatible with the framebuffer: `apt install termonology` 
-
+If you computosaure have enougth power, you may try this terminal emulator compatible with the framebuffer: `apt install termonology` 
+https://www.enlightenment.org/about-terminology.md
 
 ## text editor
 
