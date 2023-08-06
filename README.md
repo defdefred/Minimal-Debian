@@ -1,17 +1,20 @@
 # Minimal-debian
 
-## Username
+## Installation
 Let's use `user` as username in this doc.
+You can choose the username you want.
 
-## Minimal Debian
 Install the less things possible; Use LUKS encrypted disk with a long sentence, misspelled words and numbers+special characters as password.
 
-## Needed package
+## Auto-configuration
 ```
-root@wize:~# apt install alsa-utils sudo
+root@wize:~# apt install wget
+root@wize:~# wget https://tinyurl.com/Minimal-Debian
+root@wize:~# ./Minimal-Debian
 ```
 
-## Living dangerously
+## Review configuration (optional)
+### Living dangerously
 Can't wait for month to have latest software version, so switching to "testing" debian version.
 ```
 root@wize:~# cat /etc/apt/sources.list
@@ -19,7 +22,6 @@ deb http://deb.debian.org/debian testing main contrib non-free-firmware
 deb http://deb.debian.org/debian-security/ testing-security main contrib non-free-firmware
 deb http://deb.debian.org/debian testing-updates main contrib non-free-firmware
 ```
-Get the [script](src/create_apt_source_conf)
 ## Auto login
 As the disk is Luks encrypted, the strong pass-phrase is asked at each boot and auto-login is welcome.
 ```
@@ -28,7 +30,6 @@ cat /etc/systemd/system/getty@tty1.service.d/override.conf
 ExecStart=
 ExecStart=-/usr/sbin/agetty --autologin user --noclear %I $TERM
 ```
-Get the [script](src/create_autologin)
 ## Disable ipv6
 ```
 root@wize:~# cat > /etc/sysctl.d/00-no-ipv6.conf
@@ -36,8 +37,6 @@ net.ipv6.conf.all.disable_ipv6 = 1
 net.ipv6.conf.default.disable_ipv6 = 1
 net.ipv6.conf.lo.disable_ipv6 = 1
 ```
-Get the [script](src/create_apt_source_conf)
-
 ## Wifi/Ethernet
 ```
 root@wize:~# ip a | grep BROADCAST
