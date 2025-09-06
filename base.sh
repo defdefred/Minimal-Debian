@@ -2,7 +2,7 @@
 
 USER=$(ls -1 /home/)
 
-apt install -y alsa-utils sudo firefox-esr kodi foot weston
+apt install -y alsa-utils sudo firefox-esr kodi foot weston vainfo wpasupplicant
 
 cat > /etc/sysctl.d/00-no-ipv6.conf << EOT
 net.ipv6.conf.all.disable_ipv6 = 1
@@ -19,6 +19,7 @@ EOT
 echo "Apt sources configured"
 
 cat > /home/$USER/.bash_profile << EOT
+export XDG_RUNTIME_DIR=/home/$USER/.config
 if [ \`tty\` = /dev/tty1 ]
 then
   if ping -c 1 -W 1 1.1.1.1
