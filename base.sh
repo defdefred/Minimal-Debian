@@ -1,8 +1,8 @@
 #!/bin/bash
 
-USER=/home/*
+USER=$(ls -1 /home/)
 
-apt install -y alsa-utils sudo
+apt install -y alsa-utils sudo firefox-esr kodi foot weston
 
 cat > /etc/sysctl.d/00-no-ipv6.conf << EOT
 net.ipv6.conf.all.disable_ipv6 = 1
