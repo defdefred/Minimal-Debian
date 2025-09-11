@@ -1,0 +1,11 @@
+  220  vi /etc/network/interfaces
+  238  wpa_passphrase IOT password1 >> /etc/wpa_supplicant/wpa_supplicant-wlx0090c38eb690.conf
+  241  wpa_passphrase fred password2 >> /etc/wpa_supplicant/wpa_supplicant-wlx000f00cfb750.conf
+  258  chmod 600 /etc/wpa_supplicant/wpa_supplicant-*
+  242  echo wpa-conf /etc/wpa_supplicant/wpa_supplicant-wlx000f00cfb750.conf >> /etc/network/interfaces
+  243  echo wpa-conf /etc/wpa_supplicant/wpa_supplicant-wlx0090c38eb690.conf >> /etc/network/interfaces
+  246  vi /etc/wpa_supplicant/wpa_supplicant-wlx0090c38eb690.conf
+  247  vi  /etc/network/interfaces
+  255  ifup wlx0090c38eb690
+  256  ip a
+  257  vi  /etc/network/interfaces
